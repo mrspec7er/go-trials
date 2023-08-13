@@ -17,5 +17,6 @@ func main () {
 
 	fmt.Println(constantVariable, "And", mutateableVariable);
 
-	fmt.Println("Ticket Left", ticketLeft)
+	// variable inside string only work in printf
+	fmt.Printf("Only %v tickets left\n", ticketLeft)
 }

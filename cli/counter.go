@@ -1,27 +1,47 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
+
 
 func main()  {
 	var passangerCount = 0;
-	var passanger []string // slice type is like an array but have dynamic value
-	var newPassanger = "";
-	var stillWaiting = true;
+	var passangers []string // slice type is like an array but have dynamic value
+	var newPassanger string;
+	var stillWaiting bool = true;
 
-	for stillWaiting {
+	for stillWaiting { // in go there is no while loop, for loop can take it all
 
 		fmt.Println("Input new passanger");
 		fmt.Scan(&newPassanger);
+
+		if newPassanger == "DRIVER" {
+			continue
+		}
 	
-		passanger = append(passanger, newPassanger);
+		passangers = append(passangers, "PSG " + newPassanger);
 		passangerCount++;
 	
 		fmt.Printf("New passanger with username %v entered the room, %v passanger ready to go!\n", newPassanger, passangerCount)
 	
+		if len(passangers) == 3 { // len() for check length of the slice / array
+			break;
+		}
+
 		fmt.Println("Waiting for new passanger?");
 		fmt.Scan(&stillWaiting)
+
 	}
 
-	fmt.Println("Passanger list: ", passanger)
+	var passangerName []string
 
+	for _, passanger := range passangers { // _to define unused variable in golang, in this for loops it define the index of the slice / array
+		var name = strings.Fields(passanger)
+		passangerName = append(passangerName, name[1])
+	}
+
+	fmt.Println("Passanger list: ", passangers)
+	fmt.Println("Passanger Name list: ", passangerName)
 }
