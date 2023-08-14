@@ -20,6 +20,12 @@ func main()  {
 		if newPassanger == "DRIVER" {
 			continue
 		}
+
+		// check string contain and string length
+		if strings.Contains(newPassanger, "#") || len(newPassanger) < 2 {
+			fmt.Println("invalid username");
+			continue
+		}
 	
 		passangers = append(passangers, "PSG " + newPassanger);
 		passangerCount++;
@@ -44,4 +50,15 @@ func main()  {
 
 	fmt.Println("Passanger list: ", passangers)
 	fmt.Println("Passanger Name list: ", passangerName)
+
+	peripherals := "Speaker"
+
+	switch peripherals {
+		case "Monitor":
+			fmt.Println("Satisfying level 9");
+		case "Keyboard":
+			fmt.Println("Satisfying level 7");
+		case "Speaker":
+			fmt.Println("Satisfying level 10");
+	}
 }
