@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+var GlobalVariable = "This variable can be access in every file in this module!"
+
 func GetSatisfyingLevel(peripherals string) {
 
 	switch peripherals {

@@ -15,5 +15,6 @@ func main()  {
 	fmt.Println("Passanger name: ", passangerName)
 
 	utility.GetSatisfyingLevel("Speaker")
+	fmt.Println(utility.GlobalVariable)
 
 }
