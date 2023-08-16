@@ -5,20 +5,6 @@ import (
 	"strings"
 )
 
-
-func main()  {
-
-	var passangers, total = addPassanger()
-	var passangerName = getPassangerName(passangers)
-
-	fmt.Println("Passanger list: ", passangers)
-	fmt.Println("Total passanger: ", total)
-	fmt.Println("Passanger name: ", passangerName)
-
-	getSatisfyingLevel("Speaker")
-
-}
-
 func addPassanger() ([]string, int)  {
 	var passangers []string // slice type is like an array but have dynamic value
 	var passangerCount = 0;
@@ -66,18 +52,4 @@ func getPassangerName(passangers []string) []string  {
 	}
 
 	return passangerName
-}
-
-func getSatisfyingLevel(peripherals string) {
-
-	switch peripherals {
-		case "Monitor":
-			fmt.Println("Satisfying level 9");
-		case "Keyboard":
-			fmt.Println("Satisfying level 7");
-		case "Speaker":
-			fmt.Println("Satisfying level 10");
-		default:
-			fmt.Println("Satisfying level 8.5");
-	}
 }

@@ -3,14 +3,14 @@ package main
 import "fmt"
 
 func main()  {
-	var username string
-	var password string
 
-	fmt.Println("Input Username: ")
-	fmt.Scan(&username)
+	var passangers, total = addPassanger()
+	var passangerName = getPassangerName(passangers)
 
-	fmt.Println("Input password: ")
-	fmt.Scan(&password)
+	fmt.Println("Passanger list: ", passangers)
+	fmt.Println("Total passanger: ", total)
+	fmt.Println("Passanger name: ", passangerName)
 
-	fmt.Printf("Successfully register with username: %v and password %v\n", username, password)
+	getSatisfyingLevel("Speaker")
+
 }
