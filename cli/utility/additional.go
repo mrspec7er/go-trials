@@ -1,10 +1,10 @@
-package main
+package utility
 
 import (
 	"fmt"
 )
 
-func getSatisfyingLevel(peripherals string) {
+func GetSatisfyingLevel(peripherals string) {
 
 	switch peripherals {
 		case "Monitor":
