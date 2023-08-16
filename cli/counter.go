@@ -7,12 +7,25 @@ import (
 
 
 func main()  {
-	var passangerCount = 0;
-	var passangers []string // slice type is like an array but have dynamic value
-	var newPassanger string;
-	var stillWaiting bool = true;
 
-	for stillWaiting { // in go there is no while loop, for loop can take it all
+	var passangers, total = addPassanger()
+	var passangerName = getPassangerName(passangers)
+
+	fmt.Println("Passanger list: ", passangers)
+	fmt.Println("Total passanger: ", total)
+	fmt.Println("Passanger name: ", passangerName)
+
+	getSatisfyingLevel("Speaker")
+
+}
+
+func addPassanger() ([]string, int)  {
+	var passangers []string // slice type is like an array but have dynamic value
+	var passangerCount = 0;
+	var newPassanger string;
+	var stillWaiting string = "y";
+
+	for stillWaiting == "y" { // in go there is no while loop, for loop can take it all
 
 		fmt.Println("Input new passanger");
 		fmt.Scan(&newPassanger);
@@ -36,11 +49,15 @@ func main()  {
 			break;
 		}
 
-		fmt.Println("Waiting for new passanger?");
+		fmt.Println("Waiting for new passanger? (y/n)");
 		fmt.Scan(&stillWaiting)
 
 	}
 
+	return passangers, passangerCount // go can return multiple value in one function
+}
+
+func getPassangerName(passangers []string) []string  {
 	var passangerName []string
 
 	for _, passanger := range passangers { // _to define unused variable in golang, in this for loops it define the index of the slice / array
@@ -48,10 +65,10 @@ func main()  {
 		passangerName = append(passangerName, name[1])
 	}
 
-	fmt.Println("Passanger list: ", passangers)
-	fmt.Println("Passanger Name list: ", passangerName)
+	return passangerName
+}
 
-	peripherals := "Speaker"
+func getSatisfyingLevel(peripherals string) {
 
 	switch peripherals {
 		case "Monitor":
@@ -60,5 +77,7 @@ func main()  {
 			fmt.Println("Satisfying level 7");
 		case "Speaker":
 			fmt.Println("Satisfying level 10");
+		default:
+			fmt.Println("Satisfying level 8.5");
 	}
 }
