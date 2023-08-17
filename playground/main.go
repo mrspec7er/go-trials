@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 type CustomerType struct {
+	id int
 	category string
 	amount int
 	discount float32
@@ -14,10 +16,11 @@ func main () {
 	var categoryInput string;
 	var amountInput int;
 	var discountInput float32;
+	var message string
 
 	customers := []CustomerType{}
 
-	for len(customers) < 3 {
+	for len(customers) < 2 {
 
 		fmt.Println("Input Category")
 		fmt.Scan(&categoryInput)
@@ -29,6 +32,7 @@ func main () {
 		fmt.Scan(&discountInput)
 	
 		var customerData = CustomerType {
+			id: len(customers) + 1,
 			category: categoryInput,
 			amount: amountInput,
 			discount: discountInput,
@@ -37,5 +41,16 @@ func main () {
 		customers = append(customers, customerData)
 	}
 
-	fmt.Println("Data: ", customers)
+	for _,customer := range customers {
+		go generateReport(customer)
+	}
+
+	fmt.Scan(&message);
+	fmt.Println(message);
+}
+
+func generateReport(customer CustomerType) {
+	time.Sleep(5 * time.Second)
+	fmt.Println("______________________")
+	fmt.Printf("ID: %v, Category: %v, Total: %v\n",customer.id, customer.category, customer.amount * 2000)
 }
